@@ -34,13 +34,6 @@ HOTELS = [
              ("sheet","Otel Künyesi","Fact Sheet (İngilizce)","https://publuu.com/flip-book/877949/2410702"),
              ("insta","Instagram","@mithracavehotel","https://www.instagram.com/mithracavehotel/"),
              ("web","Web Sitesi","mithracavehotel.com","https://www.mithracavehotel.com/")]),
- dict(slug="misty", name="The Misty Cave Hotel", logo="misty-logo-mono.png",
-      accent="#a9b4c0", ga="rgba(169,180,192,.24)", gb="rgba(80,96,116,.28)",
-      tagline="Kapadokya manzarasına bakan sıcak ve sakin mağara odalar.",
-      links=[("mice","MICE / Toplantı & Etkinlik","Kurumsal toplantı, kongre ve özel organizasyonlar","https://pienti.com/meetings-incentives.html"),
-             ("sheet","Otel Künyesi","Fact Sheet (İngilizce)","https://publuu.com/flip-book/877949/2410700"),
-             ("insta","Instagram","@themistycavehotel","https://www.instagram.com/themistycavehotel/"),
-             ("web","Web Sitesi","themistycavehotel.com","https://themistycavehotel.com/")]),
 ]
 
 def card(icon, title, desc, href):
