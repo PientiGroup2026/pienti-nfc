@@ -12,7 +12,7 @@ ICONS = {
 
 HOTELS = [
  dict(slug="yunak", name="Yunak Evleri", logo="yunak-logo.png",
-      accent="#c9a227", ga="rgba(201,162,39,.30)", gb="rgba(120,96,58,.26)",
+      lw=210, hw=150, accent="#c9a227", ga="rgba(201,162,39,.30)", gb="rgba(120,96,58,.26)",
       tagline="Kapadokya'nın kalbinde, tarihi mağara odalarında bir konaklama.",
       links=[("mice","MICE / Toplantı & Etkinlik","Kurumsal toplantı, kongre ve özel organizasyonlar","https://pienti.com/meetings-incentives.html"),
              ("sheet","Otel Künyesi","Fact Sheet (İngilizce)","https://publuu.com/flip-book/877949/2410703"),
@@ -20,7 +20,7 @@ HOTELS = [
              ("insta","Instagram","@yunakevleri","https://www.instagram.com/yunakevleri/"),
              ("web","Web Sitesi","yunak.com","https://yunak.com/")]),
  dict(slug="asmalikonak", name="Asmalı Konak Cave Suites", logo="asmali-logo.png",
-      accent="#bb9358", ga="rgba(187,147,88,.30)", gb="rgba(86,110,190,.22)",
+      lw=196, hw=140, accent="#bb9358", ga="rgba(187,147,88,.30)", gb="rgba(86,110,190,.22)",
       tagline="İki asırlık konak, iki sakin avlu ve taş mağara süitler.",
       links=[("mice","MICE / Toplantı & Etkinlik","Kurumsal toplantı, kongre ve özel organizasyonlar","https://pienti.com/meetings-incentives.html"),
              ("sheet","Otel Künyesi","Fact Sheet (İngilizce)","https://publuu.com/flip-book/877949/2410701"),
@@ -28,7 +28,7 @@ HOTELS = [
              ("insta","Instagram","@asmalikonakcavesuites","https://www.instagram.com/asmalikonakcavesuites/"),
              ("web","Web Sitesi","asmalikonak.com.tr","https://www.asmalikonak.com.tr/")]),
  dict(slug="mithra", name="Mithra Cave Hotel", logo="mithra-logo.svg",
-      accent="#c0574f", ga="rgba(192,87,79,.30)", gb="rgba(112,9,6,.30)",
+      lw=186, hw=116, accent="#c0574f", ga="rgba(192,87,79,.30)", gb="rgba(112,9,6,.30)",
       tagline="Göreme'nin manzarasına açılan mağara odalar ve teraslar.",
       links=[("mice","MICE / Toplantı & Etkinlik","Kurumsal toplantı, kongre ve özel organizasyonlar","https://pienti.com/meetings-incentives.html"),
              ("sheet","Otel Künyesi","Fact Sheet (İngilizce)","https://publuu.com/flip-book/877949/2410702"),
@@ -61,8 +61,8 @@ for h in HOTELS:
 <meta name="theme-color" content="#0b0b0e">
 <meta property="og:title" content="{html.escape(h["name"])}">
 <meta property="og:description" content="{html.escape(h["tagline"])}">
-<link rel="stylesheet" href="../assets/style.css">
-<style>:root{{--accent:{h["accent"]};--glow-a:{h["ga"]};--glow-b:{h["gb"]}}}</style>
+<link rel="stylesheet" href="../assets/style.v2.css">
+<style>:root{{--lw:{h["lw"]}px;--accent:{h["accent"]};--glow-a:{h["ga"]};--glow-b:{h["gb"]}}}</style>
 </head>
 <body>
   <div class="bg"></div><div class="grid"></div><div class="grain"></div>
@@ -94,7 +94,7 @@ for h in HOTELS:
     print("yazıldı:", h["slug"] + "/index.html")
 
 hotel_cards = "\n".join(
-  f'      <a class="card hotel fade" href="{h["slug"]}/">\n'
+  f'      <a class="card hotel fade" href="{h["slug"]}/" style="--hw:{h["hw"]}px">\n'
   f'        <img src="assets/{h["logo"]}" alt="{html.escape(h["name"])}">\n'
   f'      </a>' for h in HOTELS)
 
@@ -106,7 +106,7 @@ open("index.html", "w").write(f'''<!DOCTYPE html>
 <title>Otellerimiz</title>
 <meta name="description" content="Kapadokya'daki otellerimiz">
 <meta name="theme-color" content="#0b0b0e">
-<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/style.v2.css">
 </head>
 <body>
   <div class="bg"></div><div class="grid"></div><div class="grain"></div>
