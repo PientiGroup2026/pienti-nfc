@@ -3,99 +3,123 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Pienti</title>
-<meta name="description" content="Pienti — bağlantılar ve dijital katalog">
-<meta name="theme-color" content="#0d0d10">
-<meta property="og:title" content="Pienti">
-<meta property="og:description" content="Bağlantılar ve dijital katalog">
+<title>Pienti Group</title>
+<meta name="description" content="Pienti Group — bağlantılarımız ve dijital katalog">
+<meta name="theme-color" content="#0b0b0e">
+<meta property="og:title" content="Pienti Group">
+<meta property="og:description" content="Bağlantılarımız ve dijital katalog">
+<meta property="og:image" content="icon.png">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>P</text></svg>">
+<link rel="icon" href="icon.png">
+<link rel="apple-touch-icon" href="icon.png">
+<link rel="preload" as="image" href="logo-light.png">
 <style>
   :root{
-    --bg:#0d0d10;
-    --bg-2:#15151b;
-    --card:rgba(255,255,255,.055);
-    --card-hover:rgba(255,255,255,.10);
-    --border:rgba(255,255,255,.12);
-    --text:#f4f4f6;
-    --muted:#9a9aa6;
+    --text:#f2f2f4;
+    --muted:#9d9daa;
+    --line:rgba(255,255,255,.11);
+    --card:rgba(255,255,255,.05);
     --accent:#c9a227;
   }
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-  html,body{margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
   body{
-    min-height:100svh;
-    background:
-      radial-gradient(1000px 600px at 50% -10%, #23232e 0%, transparent 60%),
-      linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
-    background-attachment:fixed;
+    margin:0;min-height:100svh;
     color:var(--text);
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,"Helvetica Neue",Arial,sans-serif;
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    padding:48px 16px calc(32px + env(safe-area-inset-bottom));
-    text-align:center;
-  }
-  .wrap{width:100%;max-width:440px;animation:rise .5s cubic-bezier(.2,.7,.3,1) both}
-  @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-
-  .logo{
-    width:88px;height:88px;margin:0 auto 20px;border-radius:26px;
+    background:#0b0b0e;
     display:flex;align-items:center;justify-content:center;
-    background:linear-gradient(145deg,#2a2a34,#17171d);
-    border:1px solid var(--border);
-    box-shadow:0 12px 34px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.08);
-    font-size:38px;font-weight:700;letter-spacing:-1px;color:var(--accent);
+    padding:56px 20px calc(40px + env(safe-area-inset-bottom));
+    overflow-x:hidden;
   }
-  h1{margin:0;font-size:30px;font-weight:700;letter-spacing:-.6px}
-  .sub{margin:8px 0 30px;color:var(--muted);font-size:15px;line-height:1.5}
+  /* --- profesyonel arka plan: derinlik + ışık + doku --- */
+  .bg{position:fixed;inset:0;z-index:-2;overflow:hidden;background:
+      radial-gradient(90% 60% at 50% 0%, #1d1d26 0%, #121217 45%, #0b0b0e 100%)}
+  .bg::before,.bg::after{content:"";position:absolute;border-radius:50%;filter:blur(90px);opacity:.5}
+  .bg::before{width:70vmax;height:70vmax;left:-25vmax;top:-30vmax;
+    background:radial-gradient(circle,rgba(201,162,39,.30),transparent 62%);
+    animation:drift 26s ease-in-out infinite alternate}
+  .bg::after{width:62vmax;height:62vmax;right:-24vmax;bottom:-28vmax;
+    background:radial-gradient(circle,rgba(86,110,190,.28),transparent 62%);
+    animation:drift 32s ease-in-out infinite alternate-reverse}
+  @keyframes drift{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(6vmax,4vmax,0) scale(1.14)}}
+  /* ince grid + film grain */
+  .grid{position:fixed;inset:0;z-index:-1;pointer-events:none;
+    background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),
+                     linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);
+    background-size:64px 64px;
+    -webkit-mask-image:radial-gradient(70% 55% at 50% 38%,#000 0%,transparent 78%);
+            mask-image:radial-gradient(70% 55% at 50% 38%,#000 0%,transparent 78%)}
+  .grain{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.05;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>")}
+
+  .wrap{width:100%;max-width:440px;text-align:center;position:relative}
+  .fade{opacity:0;transform:translateY(16px);animation:rise .7s cubic-bezier(.22,.72,.26,1) forwards}
+  @keyframes rise{to{opacity:1;transform:none}}
+
+  .logo{width:min(250px,72%);height:auto;display:block;margin:0 auto;
+    filter:drop-shadow(0 10px 30px rgba(0,0,0,.55))}
+  .rule{width:64px;height:1px;margin:26px auto 0;
+    background:linear-gradient(90deg,transparent,rgba(201,162,39,.85),transparent)}
+  .sub{margin:18px auto 34px;max-width:340px;color:var(--muted);font-size:14.5px;line-height:1.6;
+    letter-spacing:.2px}
 
   .links{display:flex;flex-direction:column;gap:14px}
   a.card{
-    display:flex;align-items:center;gap:14px;
-    padding:18px 18px;border-radius:18px;
-    background:var(--card);border:1px solid var(--border);
-    color:var(--text);text-decoration:none;text-align:left;
-    backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-    transition:transform .18s ease, background .18s ease, border-color .18s ease;
+    display:flex;align-items:center;gap:15px;
+    padding:18px;border-radius:18px;text-align:left;text-decoration:none;color:var(--text);
+    background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.035));
+    border:1px solid var(--line);
+    box-shadow:0 10px 30px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.07);
+    backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);
+    transition:transform .2s cubic-bezier(.2,.7,.3,1),border-color .2s,box-shadow .2s;
+    position:relative;overflow:hidden;
   }
-  a.card:hover{background:var(--card-hover);border-color:rgba(255,255,255,.22);transform:translateY(-2px)}
+  a.card::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+    background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.14) 50%,transparent 65%);
+    transform:translateX(-120%);transition:transform .6s ease}
+  a.card:hover{transform:translateY(-3px);border-color:rgba(201,162,39,.45);
+    box-shadow:0 16px 40px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.1)}
+  a.card:hover::after{transform:translateX(120%)}
   a.card:active{transform:scale(.985)}
-  .ico{
-    flex:0 0 46px;height:46px;border-radius:14px;
-    display:flex;align-items:center;justify-content:center;
-    background:rgba(201,162,39,.14);border:1px solid rgba(201,162,39,.28);
-  }
+  a.card:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+  .ico{flex:0 0 46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(145deg,rgba(201,162,39,.24),rgba(201,162,39,.08));
+    border:1px solid rgba(201,162,39,.32)}
   .ico svg{width:22px;height:22px;stroke:var(--accent);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
   .txt{flex:1;min-width:0}
-  .txt b{display:block;font-size:16.5px;font-weight:600}
+  .txt b{display:block;font-size:16.5px;font-weight:600;letter-spacing:-.1px}
   .txt span{display:block;font-size:13px;color:var(--muted);margin-top:3px}
-  .arrow{flex:0 0 auto;opacity:.45}
+  .arrow{flex:0 0 auto;opacity:.45;display:flex}
   .arrow svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 
-  footer{margin-top:34px;color:#6a6a76;font-size:12px;letter-spacing:.3px}
+  footer{margin-top:36px;color:#6c6c79;font-size:11.5px;letter-spacing:1.4px;text-transform:uppercase}
 
-  @media (prefers-color-scheme: light){
-    :root{
-      --bg:#f6f6f8;--bg-2:#ececf1;
-      --card:rgba(255,255,255,.85);--card-hover:#fff;
-      --border:rgba(0,0,0,.09);--text:#16161a;--muted:#6b6b76;--accent:#a8861a;
-    }
-    body{background:radial-gradient(1000px 600px at 50% -10%, #ffffff 0%, transparent 60%),linear-gradient(180deg,var(--bg) 0%,var(--bg-2) 100%)}
-    .logo{background:linear-gradient(145deg,#fff,#eceaf0);box-shadow:0 10px 28px rgba(0,0,0,.10), inset 0 1px 0 #fff}
-    a.card{box-shadow:0 6px 18px rgba(0,0,0,.06)}
-    footer{color:#9a9aa6}
-  }
-  @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+  /* yönlendirme ekranı */
+  #go{position:fixed;inset:0;z-index:10;display:none;flex-direction:column;align-items:center;justify-content:center;
+    gap:18px;background:rgba(11,11,14,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+    color:var(--muted);font-size:14px;letter-spacing:.3px}
+  #go.on{display:flex;animation:fadein .2s ease both}
+  @keyframes fadein{from{opacity:0}to{opacity:1}}
+  .spin{width:34px;height:34px;border-radius:50%;border:2px solid rgba(255,255,255,.15);
+    border-top-color:var(--accent);animation:spin .8s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.fade{opacity:1;transform:none}}
 </style>
 </head>
 <body>
+  <div class="bg"></div><div class="grid"></div><div class="grain"></div>
+
   <main class="wrap">
-    <div class="logo">P</div>
-    <h1>Pienti</h1>
-    <p class="sub">Aşağıdan bize ulaşabilir ve dijital kataloğumuzu inceleyebilirsiniz.</p>
+    <div class="fade" style="animation-delay:.05s">
+      <img class="logo" src="logo-light.png" alt="Pienti Group" width="1400" height="670">
+      <div class="rule"></div>
+      <p class="sub">Bize ulaşmak için bağlantılarımızı kullanabilir, dijital kataloğumuzu inceleyebilirsiniz.</p>
+    </div>
 
     <nav class="links">
-      <a class="card" href="https://linktr.ee/pienti" target="_blank" rel="noopener">
+      <a class="card fade" style="animation-delay:.18s" href="https://linktr.ee/pienti" data-go>
         <span class="ico" aria-hidden="true">
           <svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>
         </span>
@@ -103,7 +127,7 @@
         <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></span>
       </a>
 
-      <a class="card" href="https://publuu.com/flip-book/877949/2494342/page/16" target="_blank" rel="noopener">
+      <a class="card fade" style="animation-delay:.28s" href="https://publuu.com/flip-book/877949/2494342/page/16" data-go>
         <span class="ico" aria-hidden="true">
           <svg viewBox="0 0 24 24"><path d="M2 4.5h7a3 3 0 0 1 3 3V20a2.5 2.5 0 0 0-2.5-2.5H2z"/><path d="M22 4.5h-7a3 3 0 0 0-3 3V20a2.5 2.5 0 0 1 2.5-2.5H22z"/></svg>
         </span>
@@ -112,8 +136,27 @@
       </a>
     </nav>
 
-    <footer>© <span id="y"></span> Pienti</footer>
+    <footer class="fade" style="animation-delay:.38s">© <span id="y"></span> Pienti Group</footer>
   </main>
-  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+
+  <div id="go" role="status" aria-live="polite">
+    <div class="spin" aria-hidden="true"></div>
+    <div>Yönlendiriliyorsunuz…</div>
+  </div>
+
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+  var go = document.getElementById('go');
+  document.querySelectorAll('a[data-go]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; // yeni sekmede açmak isteyene dokunma
+      e.preventDefault();
+      go.classList.add('on');
+      setTimeout(function () { window.location.href = a.href; }, 280);
+    });
+  });
+  // geri gelindiğinde ekran takılı kalmasın
+  window.addEventListener('pageshow', function () { go.classList.remove('on'); });
+</script>
 </body>
 </html>
