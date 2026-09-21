@@ -83,7 +83,7 @@ for h in HOTELS:
       Diğer otellerimiz
     </a>
 
-    <footer class="fade">Pienti Group</footer>
+    <footer class="fade"><b>Pienti Group</b><span>Bilgi İşlem Müdürlüğü</span></footer>
   </main>
 
 {OVERLAY}
@@ -120,7 +120,7 @@ open("index.html", "w").write(f'''<!DOCTYPE html>
 {hotel_cards}
     </nav>
 
-    <footer class="fade">Pienti Group</footer>
+    <footer class="fade"><b>Pienti Group</b><span>Bilgi İşlem Müdürlüğü</span></footer>
   </main>
 <script src="assets/go.js"></script>
 </body>
