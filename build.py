@@ -29,8 +29,7 @@ HOTELS = [
  dict(slug="mithra", name="Mithra Cave Hotel", logo="mithra-logo.svg",
       lw=186, hw=116, accent="#c0574f", ga="rgba(192,87,79,.30)", gb="rgba(112,9,6,.30)",
       tagline="Göreme'nin manzarasına açılan mağara odalar ve teraslar.",
-      links=[("mice","MICE / Toplantı & Etkinlik","Kurumsal toplantı, kongre ve özel organizasyonlar","https://pienti.com/meetings-incentives.html"),
-             ("sheet","Otel Künyesi","Fact Sheet (İngilizce)","https://publuu.com/flip-book/877949/2410702"),
+      links=[("sheet","Otel Künyesi","Fact Sheet (İngilizce)","https://publuu.com/flip-book/877949/2410702"),
              ("insta","Instagram","@mithracavehotel","https://www.instagram.com/mithracavehotel/"),
              ("web","Web Sitesi","mithracavehotel.com","https://www.mithracavehotel.com/")]),
 ]
