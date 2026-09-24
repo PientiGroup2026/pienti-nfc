@@ -1,0 +1,7 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+# Exclude vcard.php and card/vcard.php from generic rewrite so photo download works
+RewriteCond %{REQUEST_URI} !^/vcard\.php$
+RewriteCond %{REQUEST_URI} !^/card/vcard\.php$
+RewriteRule ^card/(.+)$ index.php?slug=$1 [L,QSA]

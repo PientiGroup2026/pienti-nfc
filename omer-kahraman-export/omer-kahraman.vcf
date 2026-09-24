@@ -1,0 +1,11 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Kahraman;Ömer;;;
+FN:Ömer Kahraman
+ORG:Premium Hotel
+TITLE:Information Technology Manager
+TEL;TYPE=CELL,VOICE:+905468471958
+EMAIL;TYPE=PREF,INTERNET:bilgi@pienti.com
+URL:www.pienti.com
+ADR;TYPE=WORK:;;Temenni, Balcı Sk., 50400 Ürgüp/Nevşehir;;;;
+END:VCARD

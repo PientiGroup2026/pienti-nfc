@@ -1,0 +1,12 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Güney;Özge;;;
+FN:Özge Güney
+ORG:Premium Hotel
+TITLE:Human Resources Manager
+TEL;TYPE=WORK,VOICE:+90 549 170 60 40
+TEL;TYPE=CELL,VOICE:05327841995
+EMAIL;TYPE=PREF,INTERNET:ozge.guney@pienti.com
+URL:www.pienti.com
+ADR;TYPE=WORK:;;Temenni, Balcı Sk., 50400 Ürgüp/Nevşehir;;;;
+END:VCARD

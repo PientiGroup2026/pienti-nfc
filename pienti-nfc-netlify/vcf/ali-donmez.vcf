@@ -1,0 +1,11 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Dönmez;Ali;;;
+FN:Ali Dönmez
+ORG:Premium Hotel
+TITLE:Purchasing Manager
+TEL;TYPE=CELL,VOICE:+90 505 780 50 62
+EMAIL;TYPE=PREF,INTERNET:ali@pienti.com
+URL:www.pienti.com
+ADR;TYPE=WORK:;;Temenni, Balcı Sk., 50400 Ürgüp/Nevşehir;;;;
+END:VCARD

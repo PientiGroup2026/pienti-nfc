@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  web:
+    image: php:8.2-apache
+    container_name: pienti_nfc_web
+    ports:
+      - "8080:80"
+    volumes:
+      - ./:/var/www/html/
+    depends_on:
+      - db
+    # PDO MySQL ve ZIP eklentisini kurmak, rewrite modülünü açmak:
+    command: >
+      bash -c "apt-get update && apt-get install -y libzip-dev && docker-php-ext-install pdo pdo_mysql zip && a2enmod rewrite && apache2-foreground"
+
+  db:
+    image: mysql:8.0
+    container_name: pienti_nfc_db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: pienti_nfc
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./database.sql:/docker-entrypoint-initdb.d/init.sql
