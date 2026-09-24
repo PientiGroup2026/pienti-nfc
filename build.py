@@ -110,15 +110,10 @@ open("index.html", "w").write(f'''<!DOCTYPE html>
   <div class="bg"></div><div class="grid"></div><div class="grain"></div>
 
   <main class="wrap">
-    <div class="fade">
-      <p class="sub" style="margin-top:0">Kapadokya'daki otellerimiz.<br>Lütfen kaldığınız oteli seçin.</p>
-    </div>
-
     <nav class="links">
 {hotel_cards}
     </nav>
 
-    <footer class="fade"><b>Pienti Group</b><span>Bilgi İşlem Müdürlüğü</span></footer>
   </main>
 <script src="assets/go.js"></script>
 </body>
